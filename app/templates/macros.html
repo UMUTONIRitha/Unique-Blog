@@ -1,0 +1,21 @@
+{% macro displayBlog(blogs) %}
+{% for post in blogs %}
+
+<div class="container rr">
+<a href="">
+<h3 class="title">{{post.title}}</h3>
+</a>
+
+<p>{{post.content}}</p>
+<img src="{{post.image}}" width="300" height="200">
+<div><span class="foot">{{post.comments.count()}}</span>
+
+<a href="{{url_for('main.comment',blog_id = post.id)}}">comment</a>
+<a href="{{url_for('main.update_blog',id = post.id)}}">update</a>
+<a href="{{url_for('main.delete',id = post.id)}}">delete</a>
+</div>
+
+</div>
+{% endfor %}
+{% endmacro %}
+
