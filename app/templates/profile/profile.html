@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<div class="container-fluid">
+<div class=" row">
+
+  <div class="col-md-4">
+    {% if user.profile_pic_path %}
+
+    <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+
+    {%else%}
+    <p>No profile picture</p>
+
+    {% endif %}
+
+    {% if user == current_user %}
+    <form action="{{url_for('main.update_pic',name=user.username)}}" method="post" enctype="multipart/form-data">
+
+      <input type="file" name="photo" class="form-control" style="width: 420px;" required>
+      <input type="submit" class="btn btn-info btn-sm">
+    </form>
+    {% endif %}
+  </div>
+  
+
+  <!-- displaying  Username-->
+  <div class="col-md-4">
+
+
+    <h3> {{user.username| capitalize}} </h3>
+
+    <!--Displaying user bio-->
+    {% if user.bio %}
+    <p> {{user.bio}}</p>
+    {%else%}
+    <p> {{user.username| capitalize}} has no bio </p>
+    {% endif %}
+  <!-- </div> -->
+
+  {% if user == current_user %}
+  <a href="{{url_for('main.update_profile',name=user.username)}}" class="btn btn-info btn-sm">Edit profile</a>
+  {% endif %}
+</div>
+  <div class="col-md-4">
+    {% if current_user %}
+<h3> you have {{user.blogs.count()}} blog</h3>
+{% for i in blogs %}
+<div>
+    <h4>title: {{i.title}}</h4>
+    <h5>{{i.comments.count()}} comments</h5>
+</div>
+{% endfor %}
+{% else%}
+<h4>you have 0 blog</h4>
+{% endif %}
+
+
+</div>
+</div>
+{% endblock %}
