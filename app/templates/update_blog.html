@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"> </div>
+        <div class="col-md-8">
+            <h3 class="text-center m-5" style="color:rgb(53, 53, 218); font-family: 'Times New Roman', Times, serif;font-size: 40px;letter-spacing: 3px;"><strong>Create a blog</strong></h3>
+            <br>
+            <div class="jumbotron" style="background-color: pink;">
+                {{wtf.quick_form(form)}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
