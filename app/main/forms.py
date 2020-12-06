@@ -14,7 +14,7 @@ class BlogForm(FlaskForm):
     submit = SubmitField('submit')
 
 class CommentForm(FlaskForm):
-    comment = TextAreaField('Leave a comment',validators=[Required()])
+    comment = TextAreaField('Write a comment',validators=[Required()])
     submit = SubmitField('Comment')
 
 class UpdateBlogForm(FlaskForm):
@@ -26,7 +26,7 @@ class UpdateBlogForm(FlaskForm):
 class SubscriptionForm(FlaskForm):
     name = StringField('Name', validators = [Required()])
     email = StringField('Email',validators = [Required(),Email()])
-    submit =  SubmitField('submit')
+    submit =  SubmitField('subscribe')
 
     def validate_email(self,data_field):
         if Subscription.query.filter_by(email = data_field.data).first():
