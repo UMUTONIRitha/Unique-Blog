@@ -64,16 +64,7 @@ def delete(id):
     db.session.commit()
     return redirect(url_for('.index'))
 
-@main.route('/index/<int:id>/delete_comment', methods = ['GET','POST'])
-@login_required
-def delete_comment(id):
-    current_post = Comment.query.filter_by(id = id).first()
-    if current_post.user != current_user:
-        abort(404)
-    db.session.delete(current_post)
-    db.session.commit()
-    return redirect(url_for('.index'))
-    return render_template('comment.hmtl',current_post = current_post)
+
 
 @main.route('/update/<int:id>',methods = ['GET','POST'])
 @login_required
