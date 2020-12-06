@@ -1,21 +1,22 @@
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf%}
 {% block content %}
-<div class="container" id="allcomments">
-<h3 style="text-align: center;margin-bottom:40px;">Feel free to leave a comment</h3>
+<div class="container-fluid" id="particles-js"
+    style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq5za5BwKPDyGGq6Ex2s95zbrzp_V65Op92Q&usqp=CAU') ;background-repeat:no-repeat;background-size:cover;height:100vh;color:white;margin-top:-1cm;font-family: 'Jacques Francois', serif;">
+    <h3 style="text-align: center;margin-bottom:40px;">Feel free to leave a comment</h3>
 
     {% if comments %}
-  
+
     <div class="col-md-5 commentform">
         {{ wtf.quick_form(form)}}
     </div>
     {% for comment in comments %}
-    <div class="card w-90 mb-3"style>
+    <div class="card w-90 mb-3" style>
         <div class="card-body">
             <h5>{{comment.blogs.title}}</h5>
             <p class="card-title">{{ comment.comment }}</p>
             <p class="card-text">{{ comment.user.username}}</p>
-            
+
         </div>
     </div>
     {% endfor %}

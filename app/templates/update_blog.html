@@ -1,15 +1,15 @@
 {% extends 'base.html'%}
 {% import 'bootstrap/wtf.html' as wtf %}
 {% block content %}
-<div class="container">
+<div class="container-fluid" id="particles-js"  style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url('https://www.start-business-online.com/images/article_manager_uploads/blog.jpg') ;background-repeat:no-repeat;background-size:cover;height:100vh;color:white;margin-top:-1cm;font-family: 'Jacques Francois', serif;">
     <div class="row">
         <div class="col-md-2"> </div>
         <div class="col-md-8">
-            <h3 class="text-center m-5" style="color:rgb(53, 53, 218); font-family: 'Times New Roman', Times, serif;font-size: 40px;letter-spacing: 3px;"><strong>Create a blog</strong></h3>
+            <h3 class="text-center m-5"><strong>Update a blog</strong></h3>
             <br>
-            <div class="jumbotron" style="background-color: pink;">
+            
                 {{wtf.quick_form(form)}}
-            </div>
+          
         </div>
     </div>
 </div>
